@@ -1,0 +1,19 @@
+{:paths ["src" "public"]
+ :deps 
+ {io.replikativ/datahike {:mvn/version "0.6.1522"}}
+ :aliases
+ {:cider-repl
+  {:extra-deps
+   {nrepl/nrepl                   {:mvn/version "LATEST"}
+    cider/cider-nrepl             {:mvn/version "LATEST"}
+    cider/piggieback              {:mvn/version "LATEST"}
+    refactor-nrepl/refactor-nrepl {:mvn/version "LATEST"}}
+   :main-opts
+   ["-m" 
+    "nrepl.cmdline" 
+    "--bind"
+    "0.0.0.0"
+    "--port"
+    "41985"
+    "--middleware"
+    "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}}}
