@@ -1,27 +1,28 @@
 (ns db
-  (:require 
+  (:require
    [datahike.api :as d]
-   [datahike.migrate :refer [export-db import-db]]))
+   [datahike.migrate :refer [export-db import-db]]
+   [clojure.core :refer [slurp]]
+   [clojure.data.json :as json]))
 
 
 
 ;; use the filesystem as storage medium
-#_(def cfg {:store {:backend :file 
-                  :path "/publ/db"}})
-(def cfg {:store {:backend :mem
+(def cfg {:store {:backend :file 
+                  :path "public/db"}})
+#_(def cfg {:store {:backend :mem
                   :id "example"}})
-
-#_(def uri "datahike:file:///db")
-#_(def uri "datahike:mem:///test")
 
 ;; create a database at this place, per default configuration we enforce a strict
 ;; schema and keep all historical data
 #_(d/create-database cfg)
 
 
-
 (def conn (d/connect cfg))
 
+
+(def proceedings (json/read-str (slurp "public/data/proceedings.json")
+                                :key-fn keyword))
 
 (d/transact conn [{:db/ident :name
                    :db/valueType :db.type/string
@@ -43,4 +44,4 @@
        [?e :age ?a]]
   @conn)
 
-(export-db @conn "/tmp/eavt-dump")
+#_(export-db @conn "/tmp/eavt-dump")

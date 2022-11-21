@@ -1,6 +1,7 @@
 {:paths ["src" "public"]
  :deps 
- {io.replikativ/datahike {:mvn/version "0.6.1522"}}
+ {io.replikativ/datahike {:mvn/version "0.6.1522"}
+  org.clojure/data.json {:mvn/version "0.2.1"}}
  :aliases
  {:cider-repl
   {:extra-deps
