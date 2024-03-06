@@ -1,1 +1,8 @@
 // app global css in SCSS form
+
+.scale-page-width {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: $web-style-page-width;
+}

@@ -1,0 +1,31 @@
+$bg-main: #e3d5ca;
+$bg-bright: #f5ebe0;
+$bg-dark: #6d6875;
+$bg-white: #ffffff;
+
+$black: #000000;
+
+$main: #264653;
+$second: #2a9d8f;
+$third: #e9c46a;
+
+:root {
+  --black: #000000;
+
+  --bg-main: #e3d5ca;
+  --bg-bright: #f5ebe0;
+  --bg-dark: #6d6875;
+  --bg-white: #ffffff;
+
+  --main: #264653;
+  --second: #2a9d8f;
+  --third: #e9c46a;
+}
+
+.bg-bright {
+  background-color: var(--bg-bright);
+}
+
+.bg-dark {
+  background-color: var(--bg-dark);
+}

@@ -1,12 +1,12 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <q-page class="column items-center q-py-xl">
     <example-component
       title="Example component"
       :active="false"
       :todos="todos"
       :meta="meta"
     ></example-component>
-    <pre>{{ foodStore.foodData }}</pre>
+    <pre class="bg-bright q-pa-md">{{ foodStore.foodData }}</pre>
   </q-page>
 </template>
 

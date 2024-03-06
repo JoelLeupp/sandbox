@@ -11,15 +11,37 @@
 // It's highly recommended to change the default colors
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
+@import 'colors.scss';
 
-$primary   : #1976D2;
-$secondary : #26A69A;
-$accent    : #9C27B0;
+$primary: $main;
+$secondary: $second;
+$accent: $third;
 
-$dark      : #1D1D1D;
-$dark-page : #121212;
+$dark: #1d1d1d;
+$dark-page: #121212;
 
-$positive  : #21BA45;
-$negative  : #C10015;
-$info      : #31CCEC;
-$warning   : #F2C037;
+$positive: #21ba45;
+$negative: #c10015;
+$info: #31ccec;
+$warning: #f2c037;
+
+// remove rounded borders
+$generic-border-radius: 4px;
+
+// button defaults
+$button-shadow: none;
+$button-shadow-active: none;
+
+// input defaults
+$input-text-color: $black;
+$input-label-color: $black;
+
+// grid system breakpoints
+// max width at which point current size ends
+$breakpoint-xs: 599px;
+$breakpoint-sm: 1023px;
+$breakpoint-md: 1439px;
+$breakpoint-lg: 1919px;
+
+// custom variables, not used by Quasar framework
+$web-style-page-width: 1440px;
