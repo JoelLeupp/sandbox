@@ -1,0 +1,34 @@
+@import 'colors.scss';
+
+// -------------------------
+// Quasar variable overrides
+// -------------------------
+$primary: $nucleus-blue;
+$secondary: $graphite;
+$accent: $coral;
+$dark: $graphite;
+$positive: $traffic-light-green;
+$negative: $traffic-light-red;
+$info: $nucleus-blue;
+$warning: $amber;
+
+// remove rounded borders
+$generic-border-radius: 4px;
+
+// button defaults
+$button-shadow: none;
+$button-shadow-active: none;
+
+// input defaults
+$input-text-color: $graphite;
+$input-label-color: $graphite;
+
+// grid system breakpoints
+// max width at which point current size ends
+$breakpoint-xs: 599px;
+$breakpoint-sm: 1023px;
+$breakpoint-md: 1439px;
+$breakpoint-lg: 1919px;
+
+// custom variables, not used by Quasar framework
+$web-style-page-width: 1440px;
