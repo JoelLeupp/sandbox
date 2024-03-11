@@ -16,4 +16,8 @@ kotlin -classpath hello.jar HelloKt
 java -jar hello.jar
 ```
 
+java interactive shell 
+```
+jshell
+```
 
