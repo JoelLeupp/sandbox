@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+    <script type="module" src="/build/my-stencil-project.esm.js"></script>
+    <script nomodule src="/build/my-stencil-project.js"></script>
+    <script>
+      window.onload = function () {
+        let signal = document.getElementById("mySignal");
+        signal.addEventListener("statusUpdated", function (event) {
+            console.log(`status changed -> ${event.detail.status}`);
+        })
+      };
+    </script>
+  </head>
+  <body style="height:100vh; display: flex; flex-direction:column; justify-content: center; align-items: center;">
+      <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+      <br>
+      <div style="width:300px;">
+        <my-signal id="mySignal" status="negative"></my-signal>
+      </div>
+  </body>
+</html>
