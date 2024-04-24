@@ -1,0 +1,11 @@
+<six-root [padded]="false">
+  <app-header
+    slot="header"
+    [open]="leftSidebarOpen"
+    (leftSidebarToggled)="leftSidebarOpen = !leftSidebarOpen"
+  ></app-header>
+  <app-left-sidebar slot="left-sidebar" [open]="leftSidebarOpen"></app-left-sidebar>
+  <section slot="main">
+    <router-outlet></router-outlet>
+  </section>
+</six-root>

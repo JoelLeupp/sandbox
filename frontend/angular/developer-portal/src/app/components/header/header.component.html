@@ -1,0 +1,15 @@
+<six-header
+  show-search
+  shift-content
+  open-search="false"
+  id="app-header"
+  [openHamburgerMenu]="open"
+  (six-header-hamburger-menu-clicked)="leftSidebarToggled.emit()"
+>
+  <six-search-field
+    slot="search-field"
+    placeholder="Search for something"
+    clearable
+  >
+  </six-search-field>
+</six-header>
