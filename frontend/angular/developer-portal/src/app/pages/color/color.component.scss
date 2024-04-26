@@ -1,0 +1,16 @@
+.color-container {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  gap: var(--six-spacing-large);
+  padding: var(--six-spacing-medium);
+  background-color: beige;
+}
+
+.color-container > div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 20px;
+  height: 50px;
+  border-radius: var(--six-border-radius-x-large);
+
+}

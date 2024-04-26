@@ -1,1 +1,6 @@
-<p>color works!</p>
+<div>
+<div *ngFor="let colorPalette of sixColors" >
+  <h2>{{colorPalette[0]}}</h2>
+<div *ngFor="let color of colorPalette[1]" [style.background]="color[1]"></div>
+<div>{{colorPalette[1]}}</div>
+</div>
