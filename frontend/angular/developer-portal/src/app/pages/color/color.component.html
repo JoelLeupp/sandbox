@@ -1,6 +1,34 @@
 <div>
-<div *ngFor="let colorPalette of sixColors" >
-  <h2>{{colorPalette[0]}}</h2>
-<div *ngFor="let color of colorPalette[1]" [style.background]="color[1]"></div>
-<div>{{colorPalette[1]}}</div>
+  <h2>Six Color Palettes</h2>
+  <p class="mb-14">Hover over a color box to view technical information.</p>
+  <div *ngFor="let colorPalette of sixColors" class="mb-10 last:mb-52">
+    <h3>{{ colorPalette[0] }}</h3>
+    <div
+      class="grid md:grid-cols-[repeat(4,_minmax(100px,_200px))] gap-8 grid-cols-2"
+    >
+      <div *ngFor="let color of colorPalette[1]" class="relative group">
+        <div class="pl-2">{{ color[0] | colorlabel | titlecase }}</div>
+        <div
+          class="h-20 rounded-2xl"
+          [style.background]="color[1]"
+          [style.border-style]="color[0] == 'white' ? 'solid' : 'none'"
+        ></div>
+        <six-card
+          class="absolute z-10 hidden group-hover:block min-w-max bg-white px-5 pb-5"
+        >
+          <h4 class="my-2">Six {{ color[0] | colorlabel | titlecase }}</h4>
+          <div class="flex divide-x font-mono">
+            <div class="px-2 border-solid border-0">
+              <div class="p-2 text-lg">CSS Variable</div>
+              <div class="p-2">{{ color[0] | colorvariable }}</div>
+            </div>
+            <div class="px-2 border-solid border-0">
+              <div class="p-2 text-lg">Color Code</div>
+              <div class="p-2"><span class="bg-slate-100 p-1">{{ color[1] }}</span></div>
+            </div>
+          </div>
+        </six-card>
+      </div>
+    </div>
+  </div>
 </div>

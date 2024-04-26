@@ -1,14 +1,26 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { UiLibraryAngularModule } from '@six-group/ui-library-angular';
+import { ColorLabelPipe } from './color-label.pipe';
+import { ColorVariablePipe } from './color-variable.pipe';
 
 @Component({
   selector: 'app-color',
   standalone: true,
-  imports: [CommonModule, NgFor],
+  imports: [CommonModule,UiLibraryAngularModule,ColorLabelPipe,ColorVariablePipe],
   templateUrl: './color.component.html',
   styleUrl: './color.component.scss',
 })
 export class ColorComponent {
+
+
+  toColorVariable = function(colorName:string){
+    return `var(--six-color-${colorName})`
+  }
+
+  cleanColorName = function(colorName:string){
+    return colorName.replace('-to-be-defined',' ').replaceAll('-',' ')
+  }
 
   sixColors: [string, [string, string][]][]= [
     [
