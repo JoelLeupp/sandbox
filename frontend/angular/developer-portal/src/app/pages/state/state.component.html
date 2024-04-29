@@ -1,1 +1,9 @@
-<p>state works!</p>
+<six-tab-group (six-tab-show)="navigateToTab($event)">
+  <six-tab slot="nav" panel="component" >Component</six-tab>
+  <six-tab slot="nav" panel="service">Service and RxJS</six-tab>
+  <six-tab slot="nav" panel="ngrx">NgRX Store</six-tab>
+
+  <six-tab-panel name="component"><app-state-component></app-state-component> </six-tab-panel>
+  <six-tab-panel name="service"><app-state-service></app-state-service></six-tab-panel>
+  <six-tab-panel name="ngrx"><app-state-ngrx></app-state-ngrx></six-tab-panel>
+</six-tab-group>

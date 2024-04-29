@@ -26,7 +26,7 @@ export const routes: Routes = [
     component: FormComponent,
   },
   {
-    path: 'state',
+    path: 'state/:method',
     component: StateComponent,
   },
     {
