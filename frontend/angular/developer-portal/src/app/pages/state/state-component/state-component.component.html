@@ -1,0 +1,10 @@
+<div>
+  <h1>Simple Component State</h1>
+  <app-task-list
+    [openTasks]="openTasks()"
+    [completedTasks]="completedTasks()"
+    (removeTask)="removeTask($event.id)"
+    (completeTask)="completeTask($event.id)"
+    (addTask)="addTask($event.label)"
+  ></app-task-list>
+</div>

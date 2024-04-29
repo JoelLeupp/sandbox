@@ -1,0 +1,22 @@
+<div class="flex flex-col items-start">
+  <h2>Task List</h2>
+  <div class="flex items-center gap-2 min-h-10">
+    <div>Completed Tasks:</div>
+    <six-tag *ngFor="let task of completedTasks" type="success" pill>{{task.label}}</six-tag>
+  </div>
+  <div class="flex items-center gap-2 mt-8">
+    <label for="new-task">Task name: </label>
+    <six-input class=" min-w-48" placeholder="Enter Task" id="new-task" #taskName />
+    <six-button (click)="addTask.emit({label:taskName.value}); taskName.value=''">Add</six-button>
+  </div>
+  <ul>
+    <li *ngFor="let task of openTasks" class="flex items-center justify-between bg-action-700 px-2 m-2 rounded-md min-w-64" >
+      <span>{{task.label | titlecase}}</span>
+      <div>
+        <six-icon-button name="check" label="Check" size="medium" (click)="completeTask.emit({id:task.id})"></six-icon-button>
+        <six-icon-button name="delete" label="Delete" size="medium" (click)="removeTask.emit({id:task.id})"></six-icon-button>
+      </div>
+    </li>
+  </ul>
+</div>
+

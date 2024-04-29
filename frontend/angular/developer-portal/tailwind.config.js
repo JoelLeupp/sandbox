@@ -17,6 +17,7 @@ module.exports = {
         action: {
           500: 'var(--six-color-action-500)',
           600: 'var(--six-color-action-600)',
+          700: 'var(--six-color-action-light-to-be-defined)'
         },
         rock: {
           50: 'var(--six-color-web-rock-50)',
