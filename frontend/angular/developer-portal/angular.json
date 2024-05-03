@@ -11,7 +11,7 @@
           "skipTests":true
         },
         "@schematics/angular:service": {
-          "path": "src/services"
+          "path": "src/app/services"
         }
       },
       "root": "",

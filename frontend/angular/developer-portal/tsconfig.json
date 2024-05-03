@@ -3,7 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths":{
-    "@components/*":["./src/app/components/*"]
+    "@components/*":["./src/app/components/*"],
+    "@services/*":["./src/app/services/*"]
     },
     "baseUrl":"./",
     "outDir": "./dist/out-tsc",
