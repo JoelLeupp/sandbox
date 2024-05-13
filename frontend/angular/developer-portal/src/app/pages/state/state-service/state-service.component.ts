@@ -14,33 +14,35 @@ import { Task } from '@components/task-list/task';
 export class StateServiceComponent {
   constructor(private taskListService: TaskListService) {}
 
-  openTasks :Task[] = [];
-  completedTasks:Task[] = [];
-
+  openTasks: Task[] = [];
+  completedTasks: Task[] = [];
 
   ngOnInit(): void {
-    this.taskListService.loadTasks()
+    this.taskListService.loadTasks();
     this.getOpenTasks();
     this.getCompletedTasks();
   }
-  getOpenTasks():void{
-    this.taskListService.getOpenTasks$().subscribe((tasks)=> this.openTasks = tasks);
+  getOpenTasks(): void {
+    this.taskListService
+      .getOpenTasks$()
+      .subscribe((tasks) => (this.openTasks = tasks));
   }
 
-  getCompletedTasks():void{
-    this.taskListService.getCompletedTasks$().subscribe((tasks)=> this.completedTasks = tasks);
+  getCompletedTasks(): void {
+    this.taskListService
+      .getCompletedTasks$()
+      .subscribe((tasks) => (this.completedTasks = tasks));
   }
 
-  addTask(label:string):void {
-    this.taskListService.addTask(label)
+  addTask(label: string): void {
+    this.taskListService.addTask(label);
   }
 
   removeTask(id: number): void {
-   this.taskListService.removeTask(id)
+    this.taskListService.removeTask(id);
   }
 
   completeTask(id: number): void {
-   this.taskListService.completeTask(id)
+    this.taskListService.completeTask(id);
   }
-
 }

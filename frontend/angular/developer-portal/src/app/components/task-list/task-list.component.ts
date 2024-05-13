@@ -6,14 +6,14 @@ import { UiLibraryAngularModule } from '@six-group/ui-library-angular';
 @Component({
   selector: 'app-task-list',
   standalone: true,
-  imports: [CommonModule,UiLibraryAngularModule],
+  imports: [CommonModule, UiLibraryAngularModule],
   templateUrl: './task-list.component.html',
-  styleUrl: './task-list.component.scss'
+  styleUrl: './task-list.component.scss',
 })
 export class TaskListComponent {
   @Input() openTasks: Task[] = [];
   @Input() completedTasks: Task[] = [];
-  @Output() removeTask = new EventEmitter<{id:number}>();
-  @Output() completeTask = new EventEmitter<{id:number}>();
-  @Output() addTask = new EventEmitter<{label:string}>();
+  @Output() removeTask = new EventEmitter<{ id: number }>();
+  @Output() completeTask = new EventEmitter<{ id: number }>();
+  @Output() addTask = new EventEmitter<{ label: string }>();
 }

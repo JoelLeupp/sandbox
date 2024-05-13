@@ -1,1 +1,10 @@
-<p>state-ngrx works!</p>
+<div>
+  <h1>State Management with NgRx Store</h1>
+    <app-task-list
+      [openTasks]="openTasks"
+      [completedTasks]="completedTasks"
+      (addTask)="addTask($event.label)"
+      (removeTask)="removeTask($event.id)"
+      (completeTask)="completeTask($event.id)"
+    ></app-task-list>
+</div>

@@ -7,6 +7,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `npm install -D tailwindcss postcss autoprefixer`
 Run `npx tailwindcss init`
 
+## Include NgRx
+Run `ng add @ngrx/store@latest`
+Run `npm install @ngrx/{store,effects,entity,store-devtools} --save`
+Run `npm i @ngrx/schematics --save`
+Run `ng config cli.schematicCollections "[\"@ngrx/schematics\"]"`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
