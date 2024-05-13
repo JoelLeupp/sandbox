@@ -5,7 +5,7 @@ import { Observable,map} from 'rxjs';
 import { TaskListComponent } from '@components/task-list/task-list.component';
 import { Task } from '@components/task-list/task';
 import { TaskListActions } from 'src/app/stores/task-list/task-list.actions';
-
+import { selectOpenTasks,selectCompletedTasks } from 'src/app/stores/task-list/task-list.selectors';
 
 @Component({
   selector: 'app-state-ngrx',
@@ -15,21 +15,15 @@ import { TaskListActions } from 'src/app/stores/task-list/task-list.actions';
   styleUrl: './state-ngrx.component.scss',
 })
 export class StateNgrxComponent {
-  tasks$: Observable<Task[]>;
   openTasks:Task[] = [];
   completedTasks: Task[] = [];
 
   constructor(private store: Store<{ taskList: Task[] }>) {
-    this.tasks$ = this.store.pipe(select('taskList'));
   }
 
   ngOnInit(){
-    this.tasks$.pipe(
-      map((tasks) => tasks.filter((task) => !Boolean(task?.completed)))
-    ).subscribe(tasks => this.openTasks = tasks);
-    this.tasks$.pipe(
-      map((tasks) => tasks.filter((task) => Boolean(task?.completed)))
-    ).subscribe(tasks => this.completedTasks = tasks);
+    this.store.select(selectOpenTasks).subscribe(tasks => this.openTasks = tasks)
+    this.store.select(selectCompletedTasks).subscribe(tasks => this.completedTasks = tasks)
   }
 
   addTask(label: string): void {
