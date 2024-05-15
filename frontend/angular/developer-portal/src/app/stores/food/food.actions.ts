@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { Food } from './food.model';
+import { Food } from '@api/api.models';
 
 export const FoodListActions = createActionGroup({
   source: 'FoodList',
@@ -9,3 +9,4 @@ export const FoodListActions = createActionGroup({
     selectFood: props<{ name:string }>(),
   },
 });
+

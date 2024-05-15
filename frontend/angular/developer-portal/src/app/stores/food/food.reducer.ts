@@ -1,5 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { Food } from './food.model';
+import { Food } from '@api/api.models';
 import { FoodListActions } from './food.actions';
 
 interface State {
