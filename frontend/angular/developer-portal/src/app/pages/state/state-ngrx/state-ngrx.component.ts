@@ -6,6 +6,7 @@ import { TaskListComponent } from '@components/task-list/task-list.component';
 import { Task } from '@components/task-list/task';
 import { TaskListActions } from 'src/app/stores/task-list/task-list.actions';
 import { selectOpenTasks,selectCompletedTasks } from 'src/app/stores/task-list/task-list.selectors';
+import { appState } from 'src/app/stores';
 
 @Component({
   selector: 'app-state-ngrx',
@@ -18,7 +19,7 @@ export class StateNgrxComponent {
   openTasks:Task[] = [];
   completedTasks: Task[] = [];
 
-  constructor(private store: Store<{ taskList: Task[] }>) {
+  constructor(private store: Store<appState>) {
   }
 
   ngOnInit(){

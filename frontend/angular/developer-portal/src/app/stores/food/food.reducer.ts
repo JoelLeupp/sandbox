@@ -2,15 +2,15 @@ import { createFeature, createReducer, on } from '@ngrx/store';
 import { Food } from '@api/api.models';
 import { FoodListActions } from './food.actions';
 
-interface State {
-  foods: Food[];
-  selectedFood: Food | undefined;
+export interface foodState {
+  foodList: Food[];
+  selectedFood: Food | null;
   loading: boolean;
 }
 
-const initialState: State = {
-  foods: [],
-  selectedFood: undefined,
+const initialState: foodState = {
+  foodList: [],
+  selectedFood: null,
   loading: false,
 };
 
@@ -22,9 +22,9 @@ export const foodFeature = createFeature({
       ...state,
       loading: true,
     })),
-    on(FoodListActions.loadFoodSuccess, (state, { foods }) => ({
+    on(FoodListActions.loadFoodSuccess, (state, { foodList }) => ({
       ...state,
-      foods,
+      foodList,
       loading: false,
     }))
   ),
@@ -34,7 +34,7 @@ export const {
   name, // feature name
   reducer, // feature reducer
   selectFoodState, // feature selector
-  selectFoods, // selector for `books` property
+  selectFoodList, // selector for `books` property
   selectSelectedFood,
   selectLoading, // selector for `loading` property
 } = foodFeature;

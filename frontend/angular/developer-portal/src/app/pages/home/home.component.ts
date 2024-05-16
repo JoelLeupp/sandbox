@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Food } from '@api/api.models';
-import { APIBaseService } from '@api/api.service';
+import { Store } from '@ngrx/store';
+import { appState } from 'src/app/stores';
+import { FoodListActions } from 'src/app/stores/food/food.actions';
+import { selectFoodList } from 'src/app/stores/food/food.selector';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +15,12 @@ import { APIBaseService } from '@api/api.service';
 })
 export class HomeComponent {
 
-  foods:Food[] = []
-  constructor(private api:APIBaseService){}
+  foodList:Food[] = []
+  constructor(private store: Store<appState>) {
+  }
 
   ngOnInit(){
-    this.api.loadFood().subscribe(foods => this.foods = foods);
+    this.store.dispatch(FoodListActions.loadFood())
+    this.store.select(selectFoodList).subscribe(foodList => this.foodList = foodList)
   }
 }

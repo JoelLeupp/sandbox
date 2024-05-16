@@ -1,12 +1,12 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { Task } from '@components/task-list/task';
+import { TaskListState, taskListFeatureKey } from './task-list.reducer';
+import { appState, getAppState } from '..';
 
 
-export interface AppState {
-  taskList:Task[];
-}
+export const getTaskListState = createSelector(getAppState, (state: appState) => state.task );
 
-export const selectTaskList = (state: AppState) => state.taskList ?? [];
+export const selectTaskList = createSelector(getTaskListState, (state: TaskListState) => state.taskList ?? []);
 
 export const selectOpenTasks = createSelector(
   selectTaskList,

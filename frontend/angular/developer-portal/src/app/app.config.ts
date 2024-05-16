@@ -4,9 +4,12 @@ import { UiLibraryAngularModule } from '@six-group/ui-library-angular';
 import { CustomValidationMessagesService } from './services/costume-validation-messages.service';
 import { routes } from './app.routes';
 import { provideStore, provideState } from '@ngrx/store';
-import { taskReducer } from './stores/task-list/task-list.reducer';
+import { appReducers } from './stores';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideHttpClient } from '@angular/common/http';
+import { provideEffects } from '@ngrx/effects';
+import { FoodDataEffect } from './stores/food/food.effects';
+import { taskReducer } from './stores/task-list/task-list.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,7 +19,8 @@ export const appConfig: ApplicationConfig = {
       UiLibraryAngularModule.forRoot(CustomValidationMessagesService)
     ),
     provideStore(),
-    provideState({ name: 'taskList', reducer: taskReducer }),
+    provideState('root',appReducers),
+    provideEffects(FoodDataEffect),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
