@@ -1,10 +1,10 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
+import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
 import { Food } from '@api/api.models';
 import { FoodListActions } from './food.actions';
 
 export interface foodState {
   foodList: Food[];
-  selectedFood: Food | null;
+  selectedFood: string | string[] | null;
   loading: boolean;
 }
 
@@ -26,8 +26,20 @@ export const foodFeature = createFeature({
       ...state,
       foodList,
       loading: false,
+    })),
+    on(FoodListActions.selectFood, (state, { name }) => ({
+      ...state,
+      selectedFood:name,
+      loading: false,
     }))
   ),
+  extraSelectors: ({selectFoodList,selectSelectedFood}) => ({
+    selectSelectedFoodItem: createSelector(
+      selectFoodList,
+      selectSelectedFood,
+      (foodList, selectedFood) => foodList.filter(food=>food.name === selectedFood)[0],
+    )
+  }),
 });
 
 export const {
@@ -36,5 +48,6 @@ export const {
   selectFoodState, // feature selector
   selectFoodList, // selector for `books` property
   selectSelectedFood,
-  selectLoading, // selector for `loading` property
+  selectLoading, // selector for `loading` property,
+  selectSelectedFoodItem
 } = foodFeature;

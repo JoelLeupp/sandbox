@@ -6,6 +6,7 @@ import { StateComponent } from './pages/state/state.component';
 import { StateComponentComponent } from './pages/state/state-component/state-component.component';
 import { StateServiceComponent } from './pages/state/state-service/state-service.component';
 import { StateNgrxComponent } from './pages/state/state-ngrx/state-ngrx.component';
+import { ChartComponent } from './pages/chart/chart.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'chart',
+    component: ChartComponent,
   },
   {
     path: 'color',

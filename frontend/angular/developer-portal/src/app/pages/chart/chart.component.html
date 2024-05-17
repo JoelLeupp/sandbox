@@ -1,0 +1,36 @@
+<div>
+  <div
+    *ngrxLet="{
+      foodList: foodList$,
+      selectedFood: selectedFood$,
+      selectedFoodItem: selectedFoodItem$
+    } as observables"
+  >
+    <div *ngIf="observables.foodList.length > 0; else loading">
+      <div class="w-full flex-1">
+        <ag-grid-angular
+          class="ag-theme-alpine h-full"
+          domLayout='autoHeight'
+          [rowData]="observables.foodList"
+          [columnDefs]="colDef"
+        ></ag-grid-angular>
+      </div>
+    </div>
+    <ng-template #loading>
+      <six-spinner class="text-4xl flex justify-center pt-32"></six-spinner>
+    </ng-template>
+    <six-select
+      class="max-w-[300px] block mt-10"
+      placeholder="Select Food"
+      [value]="observables.selectedFood"
+      (six-select-change)="selectFood($event.detail.value)"
+    >
+      <six-menu-item
+        *ngFor="let food of observables.foodList"
+        [value]="food.name"
+        >{{ food.name }}</six-menu-item
+      >
+    </six-select>
+    <div>{{ observables.selectedFoodItem | json }}</div>
+  </div>
+</div>

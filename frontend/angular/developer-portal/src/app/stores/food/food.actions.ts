@@ -7,7 +7,7 @@ export const FoodListActions = createActionGroup({
     loadFood: emptyProps(),
     loadFoodSuccess: props<{ foodList:Food[] }>(),
     loadFoodError: props<{ error:string }>(),
-    selectFood: props<{ name:string }>(),
+    selectFood: props<{ name:string|string[] }>(),
   },
 });
 

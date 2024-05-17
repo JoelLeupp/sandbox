@@ -2,7 +2,11 @@
 
 @import '@six-group/ui-library/dist/ui-library/ui-library.css';
 
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 

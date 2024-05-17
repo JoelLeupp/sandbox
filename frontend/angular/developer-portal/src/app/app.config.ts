@@ -4,7 +4,7 @@ import { UiLibraryAngularModule } from '@six-group/ui-library-angular';
 import { CustomValidationMessagesService } from './services/costume-validation-messages.service';
 import { routes } from './app.routes';
 import { provideStore, provideState } from '@ngrx/store';
-import { appReducers } from './stores';
+import { STORE_PROVIDERS } from './stores';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideHttpClient } from '@angular/common/http';
 import { provideEffects } from '@ngrx/effects';
@@ -18,8 +18,8 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       UiLibraryAngularModule.forRoot(CustomValidationMessagesService)
     ),
-    provideStore(),
-    provideState('root',appReducers),
+    STORE_PROVIDERS,
+    // provideState('task'),
     provideEffects(FoodDataEffect),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
