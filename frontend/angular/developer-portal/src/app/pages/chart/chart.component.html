@@ -6,19 +6,6 @@
       selectedFoodItem: selectedFoodItem$
     } as observables"
   >
-    <div *ngIf="observables.foodList.length > 0; else loading">
-      <div class="w-full flex-1">
-        <ag-grid-angular
-          class="ag-theme-alpine h-full"
-          domLayout='autoHeight'
-          [rowData]="observables.foodList"
-          [columnDefs]="colDef"
-        ></ag-grid-angular>
-      </div>
-    </div>
-    <ng-template #loading>
-      <six-spinner class="text-4xl flex justify-center pt-32"></six-spinner>
-    </ng-template>
     <six-select
       class="max-w-[300px] block mt-10"
       placeholder="Select Food"
