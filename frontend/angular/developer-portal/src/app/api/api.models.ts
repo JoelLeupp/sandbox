@@ -3,6 +3,7 @@ export interface Food {
   calories: number;
   fat?: number;
   carbs?: number;
+  protein?: number;
   sodium?: number;
   calcium?: string;
   iron?: string;

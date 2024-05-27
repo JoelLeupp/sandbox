@@ -40,13 +40,14 @@ export class ChartComponent implements OnInit {
   }
 
   colDef: ColDef<Food>[] = [
-    { field: 'name' },
-    { field: 'calories' },
-    { field: 'fat' },
-    { field: 'carbs' },
-    { field: 'sodium' },
-    { field: 'calcium' },
-    { field: 'iron' },
+    { headerName: 'Dessert (100g serving)', field: 'name' },
+    { field: 'calories',headerName: 'Calories' },
+    { field: 'fat' , headerName: 'Fat (g)' },
+    { field: 'carbs', headerName: 'Carbs (g)' },
+    { field: 'protein', headerName: 'Protein (g)' },
+    { field: 'sodium' ,headerName: 'Sodium (mg)'},
+    { field: 'calcium' ,headerName: 'Calcium (%)'},
+    { field: 'iron' ,headerName: 'Iron (%)'},
   ];
 
 }
