@@ -35,14 +35,14 @@ export class TableComponent implements OnInit {
 
 
   colDef: ColDef<Food>[] = [
-    { headerName: 'Dessert (100g serving)', field: 'name' },
-    { field: 'calories',headerName: 'Calories' },
-    { field: 'fat' , headerName: 'Fat (g)' },
-    { field: 'carbs', headerName: 'Carbs (g)' },
-    { field: 'protein', headerName: 'Protein (g)' },
-    { field: 'sodium' ,headerName: 'Sodium (mg)'},
-    { field: 'calcium' ,headerName: 'Calcium (%)'},
-    { field: 'iron' ,headerName: 'Iron (%)'},
+    { headerName: 'Dessert (100g serving)', field: 'name', flex:2 },
+    { field: 'calories',headerName: 'Calories', flex:1},
+    { field: 'fat' , headerName: 'Fat (g)', flex:1 },
+    { field: 'carbs', headerName: 'Carbs (g)', flex:1 },
+    { field: 'protein', headerName: 'Protein (g)', flex:1 },
+    { field: 'sodium' ,headerName: 'Sodium (mg)', flex:1},
+    { field: 'calcium' ,headerName: 'Calcium (%)', flex:1},
+    { field: 'iron' ,headerName: 'Iron (%)', flex:1}
   ];
 
 }
