@@ -1,7 +1,7 @@
 <h2>Form Example</h2>
 
-<form [formGroup]="userForm" sixForm (sixSubmit)="onSubmit($event)" class="max-w-[300px]">
-  <six-layout-grid class="gap-2" columns="1">
+<form [formGroup]="userForm" sixForm (sixSubmit)="onSubmit($event)" class="max-w-[800px]">
+  <six-layout-grid class=" gap-x-10" columns="2">
     <six-input label="First Name" type="text" formControlName="firstName" required></six-input>
     <six-input label="Last Name" type="text" formControlName="lastName"></six-input>
     <six-input class="age max-w-[100px]" label="Age" type="number" formControlName="age"></six-input>
